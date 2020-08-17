@@ -1,17 +1,32 @@
-﻿using System;
+﻿// <copyright file="CabInvoiceGenerator.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CabInvoiceGeneratorProblem
 {
+    /// <summary>
+    /// CabInvoiceGenerator to generate fare for total ride.
+    /// </summary>
     public class CabInvoiceGenerator
     {
-        public readonly int COST_PER_MIN = 1;
-        public readonly int COST_MIN = 5;
-        public readonly int COST_PER_KM = 10;
+        private readonly int COSTPERMIN = 1;
+        private readonly int COSTMIN = 5;
+        private readonly int COSTPERKM = 10;
+
+        /// <summary>
+        /// This function is used to perform fare calculation.
+        /// </summary>
+        /// <param name="distance">input the distance.</param>
+        /// <param name="time">input the time.</param>
+        /// <returns>the fare.</returns>
         public double CalculateFare(double distance, int time)
         {
-            double fare = distance * COST_PER_KM + time * COST_PER_MIN;
-            if (fare < COST_MIN)
-                return COST_MIN;
+            double fare = (distance * COSTPERKM) + (time * COSTPERMIN);
+            if (fare < COSTMIN)
+            {
+                return COSTMIN;
+            }
+
             return fare;
         }
     }
